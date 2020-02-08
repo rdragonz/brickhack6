@@ -58,6 +58,7 @@ def query():
 def main():
 	'''
 	Main function
+	Creates connection, checks database, and then begins serving using flask
 	'''
 	
 	database_socket = "mongodb://{}:{}@{}:{}".format(urllib.parse.quote_plus(config.DB_USER), urllib.parse.quote_plus(config.DB_PASS), urllib.parse.quote_plus(config.DB_ADDRESS), urllib.parse.quote_plus(config.DB_PORT)) #Format the socket connection
@@ -81,7 +82,7 @@ def main():
 		print("Unable to open database {}, database does not exist!\nHave you run the first time setup script?".format(config.DB_NAME))
 		exit(1) #Exit with error
 	
-	app.run(debug=True, host='0.0.0.0') #Run the flask app
+	app.run(host='0.0.0.0') #Run the flask app
 
 if __name__ == '__main__':
 	main()
