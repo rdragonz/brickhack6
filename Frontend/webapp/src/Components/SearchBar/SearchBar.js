@@ -3,16 +3,29 @@ import './SearchBar.css';
 
 class SearchBar extends React.Component {
   
-
+  state = {input: ''};
   
+  onInputChange(event) {
+    console.log(event.target.value);
+  }
   render (){
     return (
-      <div class="ui category search">
-      <div class="ui icon input">
-        <input class="prompt" type="text" placeholder=""></input>
-        <i class="search icon"></i>
+      <div className="ui segment">
+       <label>Item Search</label>
+      <div className="ui category search">
+        
+      <div className="ui icon input">
+        
+        <input 
+        className="prompt"
+        type="text"
+        placeholder="I am a noob">
+
+          </input>
+        <i className="search icon"></i>
       </div>
-      <div class="results"></div>
+      <div className="results"></div>
+    </div>
     </div>
     )
   
