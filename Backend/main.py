@@ -13,3 +13,9 @@
 	For more information about this license, please visit https://www.gnu.org/licenses/gpl-3.0.en.html 
 	or view the LICENSE file included in this repository.
 '''
+
+import flask
+from flask import render_template
+import urllib
+app = flask.Flask(__name__) #Create the flask instance
+
