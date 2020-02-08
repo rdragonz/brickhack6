@@ -17,5 +17,25 @@
 import flask
 from flask import render_template
 import urllib
+import threading
+
+
 app = flask.Flask(__name__) #Create the flask instance
 
+
+@app.route('/post', methods=['post'])
+def post():
+	return flask.Response(status=204) #Return a no response for now
+
+@app.route('/query', methods=['get'])
+def query():
+	return flask.Response(status=204) #Return a no response for now
+
+def main():
+	'''
+	Main function
+	'''
+	app.run(debug=True, host='0.0.0.0') 
+
+if __name__ == '__main__':
+	main()
