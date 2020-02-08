@@ -19,7 +19,7 @@ from flask import render_template
 import urllib
 import threading
 import pymongo
-from config import * #Import all variables from the config file
+import config #Import all variables from the config file
 
 app = flask.Flask(__name__) #Create the flask instance
 
@@ -50,6 +50,17 @@ def main():
 	'''
 	Main function
 	'''
+	database_socket = "mongodb://{}:{}@{}:{}".format(urllib.parse.quote_plus(config.DB_USER), urllib.parse.quote_plus(config.DB_PASS), urllib.parse.quote_plus(config.DB_ADDRESS), urllib.parse.quote_plus(config.DB_PORT))
+	print("Connecting to database {}".format(database_socket)) #Print socket
+	database = pymongo.MongoClient(database_socket) #Connect to socket
+	try:
+		#Check the databse connection
+		database.admin.command('ismaster')
+		print("Connected to database!")
+	except ConnectionFailure:
+		print("Unable to connect to database!\nExiting...")
+		exit(1) #Exit with an error
+
 	app.run(debug=True, host='0.0.0.0') 
 
 if __name__ == '__main__':
