@@ -1,5 +1,5 @@
 import React from 'react';
-import './SearchBar.css';
+import './SearchBar2.css';
 import { findDOMNode } from 'react-dom';
 //import $ from 'jquery';
 
@@ -32,8 +32,11 @@ class SearchBar2 extends React.Component {
   render (){
     
     return (
-      <div className='ui segment'>
-        <form  className='ui form'>
+      <div id="test" className='ui segment'>
+        <form id='test' className='ui form'>
+         <div class="btn-container">
+         <button class="ui button">Login/Register</button>
+        </div> 
           <div class="ui search">
            <div class="ui icon input">
             <input
