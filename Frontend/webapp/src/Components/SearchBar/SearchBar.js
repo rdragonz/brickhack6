@@ -12,22 +12,23 @@ class SearchBar extends React.Component {
   onInputClick(){
     console.log('Input was clicked');
   }
-  
+
   onFormSubmit = (event) => {
     event.preventDefault();
-    this.props.onSubmit(this.state.term);
-    
+    this.props.onSubmit(this.state.input);
   };
+
+
   render (){
     return (
       <div className='ui segment'>
       <form  className='ui form'>
         <div className='field'>
-        <lable>Item Search</lable> 
+        <label>Search me</label>
         <input 
          type="text"
-         value={this.state.term}
-         onChange={(e) => this.setState({term: e.target.value })} 
+         value={this.state.input}
+         onChange={(e) => this.setState({input: e.target.value })} 
          /> 
         </div>
       </form>
