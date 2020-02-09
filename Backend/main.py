@@ -19,11 +19,11 @@ from flask import render_template
 import urllib
 import threading
 import pymongo
-import geopy
 import json
 import config #Import all variables from the config file
 
 import posts
+import queries
 
 app = flask.Flask(__name__) #Create the flask instance
 
@@ -46,7 +46,7 @@ def post():
 	'''
 	requestdata = flask.request.json
 	if requestdata['type'] == 'text':
-		posts.newTextPost(database, requestdata['userid'], requestdata['location'], requestdata['text'], requestdata['tags'])
+		posts.newTextPost(database, requestdata['userid'], requestdata['lat'], requestdata['lon'], requestdata['text'], requestdata['tags'])
 	return flask.Response(status=200) #Return 200 OK
 
 @app.route('/login', methods=['get', 'post'])
