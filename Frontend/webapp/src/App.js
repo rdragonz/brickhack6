@@ -6,9 +6,7 @@ import ContentPane from './Components/ContentPane/ContentPane';
 
 
 
-<<<<<<< HEAD
-function App() {
-=======
+
 class App extends React.Component{
 
   onSearchSubmit(input) {
@@ -16,7 +14,7 @@ class App extends React.Component{
   }
 
  render (){ 
->>>>>>> 7591b901d005266d39c447445da7e3e90b86bdb0
+
   return (
     <div className="App">
       {/*<SearchBar onSubmit={this.onSearchSubmit} /> */}

@@ -1,3 +1,20 @@
-.container {
-  background-color: blanchedalmond;
+div#content-container.container {
+  background-color: #282c34;
+   color: white;
+   margin: 0,0,0,0;
+   padding: 0;
+}
+
+
+#test {
+  margin-bottom: 4rem;
+}
+
+div#test.ui.segment {
+ margin: 0;
+ padding-bottom: 50px;
+}
+
+#item {
+  margin: 0;
 }
