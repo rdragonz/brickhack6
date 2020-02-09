@@ -1,19 +1,22 @@
 import React from 'react';
-import './SideBarBar.css';
+import './SideBar.css';
 
 class SideBar extends React.Component {
-  
-
-  
   render (){
     return (
-      <div class="ui category search">
-      <div class="ui icon input">
-        <input class="prompt" type="text" placeholder=""></input>
-        <i class="search icon"></i>
+      <div>
+      <Row>
+        <Col>1 of 3</Col>
+        <Col xs={6}>2 of 3 (wider)</Col>
+        <Col>3 of 3</Col>
+      </Row>
+      <Row>
+        <Col>1 of 3</Col>
+        <Col xs={5}>2 of 3 (wider)</Col>
+        <Col>3 of 3</Col>
+      </Row>
       </div>
-      <div class="results"></div>
-    </div>
+    
     )
   
   }
