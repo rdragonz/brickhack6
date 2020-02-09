@@ -1,12 +1,22 @@
 import React from 'react';
 import './SearchBar.css';
+import { findDOMNode } from 'react-dom';
+import $ from 'jquery';
 
 class SearchBar2 extends React.Component {
   
   state = {input: ''};
   
+ 
+
   onInputChange(event) {
     console.log(event.target.value);
+
+    /*$('.ui.search')
+    .search({
+      source: content
+    }); */
+    
   }
 
   onInputClick(){
@@ -20,6 +30,7 @@ class SearchBar2 extends React.Component {
 
 
   render (){
+    
     return (
       <div className='ui segment'>
         <form  className='ui form'>
