@@ -8,13 +8,13 @@ def newPostID(database):
 	'''
 	possibleID = random.randint(0, 4294967295) #Generate a new ID between 0 and the 32 bit integer limit
 
-	if database["posts"].find_one({"postid":str(possibleID)}) == None: #Check if the ID already exists
+	if database["posts"].find_one({"postid":possibleID}) == None: #Check if the ID already exists
 		return possibleID
 	else:
 		#In the absolutely amazingly unlikely event that the generated ID already exists, generate a new one
 		return newPostID(database)
 
-def newTextPost(database, userid, location, text, tags):
+def newTextPost(database, userid, lat, lon, text, tags):
 	'''
 	Create a new post with text
 	'''
@@ -22,5 +22,5 @@ def newTextPost(database, userid, location, text, tags):
 
 	time = datetime.datetime.now(datetime.timezone.utc) #Get the current UTC time
 
-	database['posts'].insert_one({"postid" : str(postID),"userid" : userid, "type" : "text", "timestamp" : str(time), "location" : location, "content" : { "text" : text },
+	database['posts'].insert_one({"postid" : postID,"userid" : userid, "type" : "text", "timestamp" : str(time), "lat": lat, "lon": lon, "content" : { "text" : text },
     "tags" : tags})
