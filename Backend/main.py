@@ -20,12 +20,16 @@ import urllib
 import threading
 import pymongo
 import json
+from flask.ext.openid import OpenID
+from flask import g, session
+
 import config #Import all variables from the config file
 
 import posts
 import queries
 
 app = flask.Flask(__name__) #Create the flask instance
+oid = OpenID(app, '/idstore', safe_roots=[]) #Create an OpenID authenticator
 
 @app.route('/')
 def index():
@@ -50,11 +54,15 @@ def post():
 	return flask.Response(status=200) #Return 200 OK
 
 @app.route('/login', methods=['get', 'post'])
+@oid.loginhandler
 def login():
-	'''
-	Being the process of logging in the user
-	'''
-	return flask.Response(status=204) #Return a no response for now
+	if g.user is not None:
+		return redirect(oid.get_next_url())
+	if request.method == 'POST':
+		openid = request.form.get('openid')
+		if openid:
+			return oid.try_login(openid, ask_for=['email', 'fullname', 'image'])
+	return render_template('login.html', next=oid.get_next_url(), error=oid.fetch_error())
 
 @app.route('/query', methods=['get'])
 def query():
@@ -70,6 +78,13 @@ def query():
 	else:
 		return flask.Response(status=400)
 
+@app.before_request
+def lookup_current_user():
+	g.user = None
+	if 'openid' in session:
+		openid = session['openid']
+		g.user = database["users"].find_one({"openid":openid})
+		
 def main():
 	'''
 	Main function
