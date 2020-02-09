@@ -8,24 +8,29 @@ class SearchBar extends React.Component {
   onInputChange(event) {
     console.log(event.target.value);
   }
+
+  onInputClick(){
+    console.log('Input was clicked');
+  }
+  
+  onFormSubmit = (event) => {
+    event.preventDefault();
+    this.props.onSubmit(this.state.term);
+    
+  };
   render (){
     return (
-      <div className="ui segment">
-       <label>Item Search</label>
-      <div className="ui category search">
-        
-      <div className="ui icon input">
-        
+      <div className='ui segment'>
+      <form  className='ui form'>
+        <div className='field'>
+        <lable>Item Search</lable> 
         <input 
-        className="prompt"
-        type="text"
-        placeholder="I am a noob">
-
-          </input>
-        <i className="search icon"></i>
-      </div>
-      <div className="results"></div>
-    </div>
+         type="text"
+         value={this.state.term}
+         onChange={(e) => this.setState({term: e.target.value })} 
+         /> 
+        </div>
+      </form>
     </div>
     )
   
