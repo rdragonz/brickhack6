@@ -5,10 +5,8 @@ align-items: center;
 padding: 10px;
 }
 
-.ui.segment {
-  align-items: center;
-  height: 4vh;
-
+.searchbar{
+  padding-top: 32px;
 }
 
 #test {

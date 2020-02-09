@@ -32,7 +32,7 @@ class SearchBar2 extends React.Component {
   render (){
     
     return (
-      <div id="test" className='ui segment'>
+      <div className="searchbar">
         <form id='test' className='ui form'>
           <div class="ui search">
            <div class="ui icon input">

@@ -21,8 +21,8 @@ class SearchBar extends React.Component {
 
   render (){
     return (
-      <div className='ui segment'>
-      <form  className='ui form'>
+      <div>
+           <form  className='ui form'>
         <div className='field'>
         <label>Search me</label>
         <input 
@@ -32,7 +32,9 @@ class SearchBar extends React.Component {
          /> 
         </div>
       </form>
-    </div>
+      </div>
+     
+    
     )
   
   }

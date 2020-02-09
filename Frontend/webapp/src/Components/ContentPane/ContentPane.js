@@ -16,56 +16,39 @@ class ContentPane extends React.Component {
     var faker = require('faker/locale/en');
 
     return (
-
-     <div id="content-container" class="container">
-       <div class="container1">
-       <div class="ui items">
-      <div id="item"class="item">
-        <div className="image">
-          <img alt="image" src={faker.image.nature()}>
-            </img>
-        </div>
-       
-       <div id="test" class="content">
-          <a class="header" href="#" >Content Pane 1</a>
-          <div class="meta">
-            <span>Description</span>
-          </div>
-          <div class="description">
-            <p></p>
-          </div>
-          <div class="extra">
-            Additional Details
-          </div>
-        </div>
-      </div>
-      </div>
-       </div>
-       
-
-
       
-      <div class="ui items">
-      <div class="item">
-        <div class="image">
-          <img src="/images/wireframe/image.png">
-            </img>
-        </div>
-        <div class="content">
-          <a class="header" href="#" >Content Pane 2</a>
-          <div class="meta">
-            <span>Description</span>
-          </div>
-          <div class="description">
-            <p></p>
-          </div>
-          <div class="extra">
-            Additional Details
-          </div>
-        </div>
+      <div class="ui stackable three column grid">
+
+      <div class="column">
+         <div class="ui segment"> 
+        <img src="./" 
+        />
       </div>
-      </div>
+      <a class="ui blue tag label">Tag</a>
+      <a class="ui tag label">taggg</a>
+      <a class="ui  tag label">Tagggggg</a>
      </div>
+
+      <div class="column">
+        <div class="ui segment">
+        <img src="./" 
+        />
+        </div>
+        <a class="ui teal tag label">New</a>
+        <a class="ui tag label">Upcoming</a>
+        <a class="ui teal tag label">Featured</a>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+        <img src="./"
+        />
+        </div>
+        <a class="ui teal tag label">New</a>
+        <a class="ui tag label">Upcoming</a>
+        <a class="ui teal tag label">Featured</a>
+        </div>
+    </div>
+    
 
     )
   

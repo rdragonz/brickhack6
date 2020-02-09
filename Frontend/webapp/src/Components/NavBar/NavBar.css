@@ -2,8 +2,10 @@
   background-color: #282c34;
 }
 
-.navLinks {
-  list-style: none;
+.btn{
+  color:white;
+  border-radius: 1rem;
+  border: white;
 }
 
 .logo{

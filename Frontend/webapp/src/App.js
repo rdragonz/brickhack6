@@ -13,14 +13,29 @@ class App extends React.Component{
  render (){ 
 
   return (
-    <div className="App">
+    <html>
+      <body>
+      <div className="App">
       <NavBar />
-      <SearchBar2 onSubmit={this.onSearchSubmit}/>
-      <ContentPane />
-      <header className="App-header">
+     
+      <section className="searchbar-section">
+        <SearchBar2 onSubmit={this.onSearchSubmit}/>
+      </section>
+      <section className="contentPane-section">
+        <ContentPane />
+      </section>
+      </div> 
+      </body>
+      <footer>
+       
+     </footer>
+    </html>
+     
+   
+      
+      
     
-      </header>
-    </div>
+    
   );
 
   }

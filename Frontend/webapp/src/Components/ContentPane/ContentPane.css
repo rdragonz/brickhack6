@@ -1,8 +1,3 @@
-#content-container {
-  background-color: #282c34;
-   color: white;
-  max-width: 100%;
-}
 
 
 #test {
@@ -11,7 +6,8 @@
 
 div#test.ui.segment {
  margin: 0;
- padding-bottom: 50px;
+padding: 50px;
+ background-color: #282c34;
 }
 
 .ui.items>.item>.content>a.header{
@@ -34,4 +30,34 @@ div#test.ui.segment {
 
 .spacer {
 
+}
+
+.image {
+  border:white;
+}
+
+.img1, .img2 {
+  border-radius: 2px;
+  border: white;
+}
+
+
+
+.top{
+ align-self: flex-start;
+ 
+}
+
+.bottom{
+align-self: flex-end;
+}
+
+.ui.three.column.grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.ui.stackable.three.column.grid{
+padding-top: 50px;
 }
