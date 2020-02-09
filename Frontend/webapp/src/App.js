@@ -19,7 +19,7 @@ class App extends React.Component{
       <SearchBar2 onSubmit={this.onSearchSubmit}/>
       <ContentPane />
       <header className="App-header">
-        Our Website 
+    
       </header>
     </div>
   );
