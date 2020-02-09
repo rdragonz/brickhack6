@@ -18,3 +18,7 @@ padding: 10px;
 div.ui.search {
   align-items: center;
 }
+
+div#test.ui.segment {
+  padding: 0, 0, 0;
+}

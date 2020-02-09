@@ -2,12 +2,7 @@ import React from 'react';
 import './App.css';
 import SearchBar2 from './Components/SearchBar/SearchBar2';
 import ContentPane from './Components/ContentPane/ContentPane';
-
-
-
-
-
-
+import NavBar from './Components/NavBar/NavBar';
 
 class App extends React.Component{
 
@@ -19,7 +14,7 @@ class App extends React.Component{
 
   return (
     <div className="App">
-      {/*<SearchBar onSubmit={this.onSearchSubmit} /> */}
+      <NavBar />
       <SearchBar2 onSubmit={this.onSearchSubmit}/>
       <ContentPane />
       <header className="App-header">
