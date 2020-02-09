@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchBar.css';
 import { findDOMNode } from 'react-dom';
-import $ from 'jquery';
+//import $ from 'jquery';
 
 class SearchBar2 extends React.Component {
   
