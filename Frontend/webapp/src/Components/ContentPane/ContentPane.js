@@ -40,7 +40,7 @@ class ContentPane extends React.Component {
             </img>
         </div>
         <div class="content">
-          <a class="header">Content Pane 3</a>
+          <a class="header">Content Pane 2</a>
           <div class="meta">
             <span>Description</span>
           </div>
