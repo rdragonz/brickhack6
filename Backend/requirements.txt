@@ -1,2 +1,4 @@
 flask>=1.1.1
 pymongo>=3.10.1
+geopy>=1.21.0n
+oauthlib>=3.1.0
