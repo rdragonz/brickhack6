@@ -3,16 +3,35 @@ import './SearchBar.css';
 
 class SearchBar extends React.Component {
   
-
+  state = {input: ''};
   
+  onInputChange(event) {
+    console.log(event.target.value);
+  }
+
+  onInputClick(){
+    console.log('Input was clicked');
+  }
+
+  onFormSubmit = (event) => {
+    event.preventDefault();
+    this.props.onSubmit(this.state.input);
+  };
+
+
   render (){
     return (
-      <div class="ui category search">
-      <div class="ui icon input">
-        <input class="prompt" type="text" placeholder=""></input>
-        <i class="search icon"></i>
-      </div>
-      <div class="results"></div>
+      <div className='ui segment'>
+      <form  className='ui form'>
+        <div className='field'>
+        <label>Search me</label>
+        <input 
+         type="text"
+         value={this.state.input}
+         onChange={(e) => this.setState({input: e.target.value })} 
+         /> 
+        </div>
+      </form>
     </div>
     )
   
