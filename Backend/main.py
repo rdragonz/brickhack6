@@ -64,7 +64,11 @@ def query():
 	Also requires oauth token
 	Additional fields available.
 	'''
-	return flask.Response(status=204) #Return a no response for now
+	requestdata = flask.request.json
+	if requestdata['type'] == 'distance':
+		return queries.postsInRadius(datbase, requestdata['distance'], requestdata['lat'], requestdata['lon'])
+	else:
+		return flask.Response(status=400)
 
 def main():
 	'''
