@@ -16,8 +16,10 @@ class ContentPane extends React.Component {
     var faker = require('faker/locale/en');
 
     return (
+
      <div id="content-container" class="container">
-        <div class="ui items">
+       <div class="container1">
+       <div class="ui items">
       <div id="item"class="item">
         <div className="image">
           <img alt="image" src={faker.image.nature()}>
@@ -36,11 +38,13 @@ class ContentPane extends React.Component {
             Additional Details
           </div>
         </div>
-        
+      </div>
+      </div>
+       </div>
        
-      </div>
-      </div>
-      <div class="spacer"></div>
+
+
+      
       <div class="ui items">
       <div class="item">
         <div class="image">
