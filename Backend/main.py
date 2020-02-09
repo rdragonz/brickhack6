@@ -19,7 +19,11 @@ from flask import render_template
 import urllib
 import threading
 import pymongo
+import geopy
+import json
 import config #Import all variables from the config file
+
+import posts
 
 app = flask.Flask(__name__) #Create the flask instance
 
@@ -30,7 +34,7 @@ def index():
 	'''
 	return render_template('index.html', site=config.WEBSITE_BASEURL) #Return the dummy page
 
-@app.route('/post', methods=['post'])
+@app.route('/post', methods=['POST'])
 def post():
 	'''
 	Create a new post
@@ -40,10 +44,17 @@ def post():
 	And Post content at the bare minimum
 	Also will require the oauth token for verification
 	'''
+	requestdata = flask.request.json
+	if requestdata['type'] == 'text':
+		posts.newTextPost(database, requestdata['userid'], requestdata['location'], requestdata['text'], requestdata['tags'])
+	return flask.Response(status=200) #Return 200 OK
+
+@app.route('/login', methods=['get', 'post'])
+def login():
+	'''
+	Being the process of logging in the user
+	'''
 	return flask.Response(status=204) #Return a no response for now
-
-
-
 
 @app.route('/query', methods=['get'])
 def query():
@@ -76,13 +87,27 @@ def main():
 	#Check if the database exists
 	print("Checking database...")
 	if config.DB_NAME in db_server.list_database_names(): #Check to see if the database exists
+		global database
 		database = db_server[config.DB_NAME] #Open a connection to the database
-		print("Connected to database {}.".format(config.DB_NAME))	
+		print("Connected to database {}.".format(config.DB_NAME))
+		print("Checking database structure...")
+		if "posts" in database.list_collection_names():
+			print("posts collection exists!")
+		else:
+			print("There's a problem with the database!\nOne or more collections is missing!\nIs this a valid database for this applciation?")
+			exit(1) #Exit with error
+		if "users" in database.list_collection_names():
+			print("users collection exists!")	
+		else:
+			print("There's a problem with the database!\nOne or more collections is missing!\nIs this a valid database for this applciation?")
+			exit(1) #exit with error
+		print("Database structure valid!")
 	else:
 		print("Unable to open database {}, database does not exist!\nHave you run the first time setup script?".format(config.DB_NAME))
 		exit(1) #Exit with error
-	
-	app.run(host='0.0.0.0') #Run the flask app
+
+	app.run(debug=True, host='0.0.0.0') #Run the flask app
+
 
 if __name__ == '__main__':
 	main()
