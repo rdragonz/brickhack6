@@ -1,8 +1,14 @@
 .navbar {
-  background-color: coral;
+  background-color: #282c34;
 }
 
 .navLinks {
   list-style: none;
+}
+
+.logo{
+  font-size: 20px;
+  font-style: bold;
+  color: white;
 }
 
