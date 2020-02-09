@@ -1,23 +1,13 @@
 import React from 'react';
 import './App.css';
-import SearchBar from './Components/SearchBar/SearchBar';
+import SearchBar2 from './Components/SearchBar/SearchBar';
+import ContentPane from './Components/ContentPane/ContentPane';
 
 
 
-<<<<<<< HEAD
-class App extends React.Component {
-  render (){
-    return (
-      <div className="App">
-        <SearchBar/>
-      
-        <header className="App-header">
-          Our Website 
-        </header>
-      </div>
-    );
 
-=======
+
+
 
 class App extends React.Component{
 
@@ -37,7 +27,7 @@ class App extends React.Component{
       </header>
     </div>
   );
->>>>>>> 9ca85ed0e67e18c7fd385149d9a689bafbd9ee43
+
   }
   
 }
