@@ -1,4 +1,4 @@
-# [Project name to be determined]
+# [RIT BrickHack 6 Project]
 
 BrickHack 6
 --
